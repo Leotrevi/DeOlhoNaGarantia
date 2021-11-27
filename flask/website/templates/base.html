@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="/static/css/materialize.css" rel="stylesheet">
+    <link href="/static/css/alerta.css" rel="stylesheet">
+    <title>{% block title %}Home{% endblock %}</title>
+  </head>
+  <body>
+    <nav class="lighten-1" role="navigation">
+      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">De Olho na Garantia</a>
+        <ul class="right hide-on-med-and-down">
+          {% if user.is_authenticated %}
+          <li><a id="home" href="/">Home</a></li>
+          <li><a id="logout" href="/logout">Logoff</a></li>
+          {% else %}
+          <li><a id="login" href="/login">Login</a></li>
+          <li><a id="signUp" href="/sign-up">Cadastro</a></li>
+          {% endif %}
+        </ul>
+  
+        <ul id="nav-mobile" class="sidenav">
+          {% if user.is_authenticated %}
+          <li><a id="home" href="/">Home</a></li>
+          <li><a id="logout" href="/logout">Logoff</a></li>
+          {% else %}
+          <li><a id="login" href="/login">Login</a></li>
+          <li><a id="signUp" href="/sign-up">Cadastro</a></li>
+          {% endif %}
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %} {% if category ==
+      'error' %}
+      <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{ message }}
+      </div>
+      {% else %}
+      <div class="success">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{ message }}
+      </div>
+      {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+    <div class="container">{% block content %} {% endblock %}</div>
+    <footer class="page-footer purple">
+    
+    </footer>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{{ url_for('static', filename='js/materialize.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/init.js') }}"></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='index.js') }}"
+    ></script>
+  </body>
+</html>
