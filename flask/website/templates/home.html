@@ -1,6 +1,9 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
     %}
-    <h1 align="center">Anotações</h1>
+    <h1 align="center">Cadastre seu produto...</h1>
+<h6 align="center">Insira na anotação abaixo: O nome do Produto; O CNPJ da Loja; O nome do produto de acordo com a nota fiscal; O valor; Número de Série do SAT; A data da compra; Horário; Prazo da Garantia; Número do código de barras</h6>
+<h4 align="center">(Veja o modelo abaixo)</h4>
+
     <ul class="list-group list-group-flush" id="notes">
       {% for note in user.notes %}
       <li class="list-group-item">
@@ -19,21 +22,39 @@
       </div>
       <br>
     </form>
-    <div class="container">
-      <br><br>
-      <div class="row center">
-        <a href="" id="download-button" class="btn-large waves-effect waves-light purple">Cadastrar novo produto...</a>
-      </div>
-      <br><br>
+
+<div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><h2 class="center light-blue-text"><img style="..." src="/static/images/fiscal_modelo.jpg"/></h2></h2>
+
+
+                  </div>
+
+  <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><h2 class="center light-blue-text"><img style="..." src="/static/images/garantia_modelo.jpg"/></h2></h2>
+
+
+                  </div>
+        </div>
+
+  <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><h2 class="center light-blue-text"><img style="..." src="/static/images/codbarras_modelo.jpg"/></h2></h2>
+
+
+                  </div>
+        </div>
 
     </div>
 
   </div>
 
+
   <div class="container">
     <div class="">
-      <label for="search">Digite produto que deseja buscar</label>
-      <input type="text" id="login">
+      <h4 style="color:red;"> EM BREVE....VEJA COMO SERÁ NOSSA PÁGINA! </h4>
+     <hr>
     </div>
   </div><br>
   <div class="container">
